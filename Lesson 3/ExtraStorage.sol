@@ -4,6 +4,6 @@ import "./SimpleStorage.sol";
 
 contract ExtraStorage is SimpleStorage {
     function store(uint256 _favoriteNumber) public override{
-        favoriteNumber = _favoriteNumber;
+        favoriteNumber = _favoriteNumber+5;
     }
 }
