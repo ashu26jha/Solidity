@@ -11,7 +11,8 @@ async function main() {
     const contractFactory = new ethers.ContractFactory(abi,binary,wallet); //Contract Factory is an object used to deploy contracts
     console.log("Deploying");
     const contract = await contractFactory.deploy(); // Wait for contract to deploy
-    
+    await contract.deployTransaction.wait(1);
+    console.log(`The address is : ${contract.address}`)
     // const transactionReceipt = await contract.deployTransaction.wait(1);
     // console.log("This is transaction Receipt : ",transactionReceipt);
 
