@@ -1,38 +1,43 @@
 const {ethers , run, network } = require("hardhat");
 
 
-async function main (){
-  const SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage");
-  console.log("Deploying contract");
-  const SimpleStorage = await SimpleStorageFactory.deploy();
-  await SimpleStorage.deployed();
-  console.log(`Deployed contract to: ${SimpleStorage.address}`);
-  if(network.chainId === 5 && process.env.ETHERSCAN_API_KEY){
-    await SimpleStorage.wait(6);
-    await verify(SimpleStorage,[]);
+async function main() {
+  const SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage")
+  console.log("Deploying contract...")
+  const simpleStorage = await SimpleStorageFactory.deploy()
+  await simpleStorage.deployed()
+  console.log(`Deployed contract to: ${simpleStorage.address}`)
+  // what happens when we deploy to our hardhat network?
+  if (network.config.chainId === 5 && process.env.ETHERSCAN_API_KEY) {
+    console.log("Waiting for block confirmations...")
+    await simpleStorage.deployTransaction.wait(6)
+    await verify(simpleStorage.address, [])
   }
 
-  const currentValue = await SimpleStorage.retrieve();
-  console.log(`Current value : ${currentValue}`);
+  const currentValue = await simpleStorage.retrieve()
+  console.log(`Current Value is: ${currentValue}`)
 
-  const transactionResponsse = await SimpleStorage.store(7);
-  await transactionResponsse.wait(1);
-  const update = await SimpleStorage.retrieve();
-  console.log(`Updated value: ${update.toString()}`);
+  // Update the current value
+  const transactionResponse = await simpleStorage.store(7)
+  await transactionResponse.wait(1)
+  const updatedValue = await simpleStorage.retrieve()
+  console.log(`Updated Value is: ${updatedValue}`)
 }
 
-async function verify (contactAddress , args){
-  console.log("Verifying Package");
-  try{
-    await run("verify:verify",{
-      address: contactAddress,
+const verify = async (contractAddress, args) => {
+  console.log("Verifying contract...")
+  try {
+    await run("verify:verify", {
+      address: contractAddress,
       constructorArguments: args,
-    });
+    })
+  } catch (e) {
+    if (e.message.toLowerCase().includes("already verified")) {
+      console.log("Already Verified!")
+    } else {
+      console.log(e)
+    }
   }
-  catch(e){
-    console.log(e);
-  }
-
 }
 
 main()
