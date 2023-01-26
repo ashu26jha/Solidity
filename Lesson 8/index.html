@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="./Images/logo.png"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy me a coffee</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">    <title>Buy me a coffee</title>
 </head>
 <body>
     <script src="./index.js" type="module"></script>
-    <button id="connectButton" >Connect</button>
-    <button id="fund">Fund Me</button>
+    <div class = "navbar">
+        <div class = "logoContainer">
+            <img src="/Images/logo.png" class="logo1">
+            
+        </div>
+        <div class="logotext">
+            <h1>Buy me a coffee</h1>
+        </div>
+    </div>
+    <div id="metamaskConnect">
+        <h2 id="Connect-Meta">Connect to metamask first!</h2>
+        <button id="connectButton" >Connect</button>
+    </div>
+    
+    <div id = "fundME">
+        <label for="fund">Get me a coffee for :</label>
+        <input id="ETHAmount" placeholder="Enter the amount"/>
+        <button id="fund">Fund Me</button>
+    </div>
+    <br>
     <button id="balance">Balance</button>
-    <label for="fund">ETH Amount</label>
-    <input id="ETHAmount" placeholder="Enter the amount"/>
 </body>
 </html>

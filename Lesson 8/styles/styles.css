@@ -1,0 +1,122 @@
+body{
+    color: antiquewhite;
+    background-color: #000015;
+    font-family: 'Rubik', sans-serif;
+}
+h1{
+    background: linear-gradient(to right, #ff0c25, #5c4afb);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+    /* margin: auto; */
+}
+label{
+    font-size: 35px;
+}
+.logotext{
+    font-family: 'Nunito', sans-serif;
+    color: aliceblue;
+}
+.logoContainer{
+    display: flex;
+    margin: 10px;
+    width: 70px;
+    height: 90%;
+    background-image: url("../Images/logo.png");
+}
+.navbar{
+    display: flex;
+    width: 90%;
+    height: 80px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 30px;
+    background-color: #18183d;
+}
+.logo1{
+    height: 100%;
+}
+.logo1:hover{
+    transition-delay: 0.1s;
+    transform: rotate(20deg);
+}
+.logoText{
+    font-family: 'Nunito', sans-serif;
+    background-color: antiquewhite;
+}
+#metamaskConnect{
+    display: flex;
+    font-size: 20px;
+    height: 100px;
+    width: 35%;
+    text-align: center;
+    margin: auto;
+}
+#metamaskConnect1{
+    font-size: 20px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+#connectButton {
+    background-color: #000015;
+    color: antiquewhite;
+    border-radius: 10px;
+    border: 2px solid;
+    margin-top: 30px;
+    height: 28px;
+    margin-left: 20px;
+    font-size: 18px;
+    transition-duration: 0.4s;
+
+}
+  
+#connectButton:hover {
+    /* background-color: #4CAF50; Green */
+    
+    background-color: antiquewhite;
+    color: #000015;
+    cursor: pointer;
+}
+#ETHAmount{
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: #000015;
+    /* border-color: antiquewhite; */
+    padding-left: 10px;
+    text-align: center;
+    font-size: large;
+    border: 2px solid antiquewhite;
+    width: 200px;
+    border-radius: 10px;
+    height: 30px;
+}
+#ETHAmount:focus{
+    outline: none;
+    text-align: center;
+    background-color: antiquewhite;
+    color: #000015;
+    caret-color: transparent;
+    transition-duration: 0.4s;
+}
+#fundME{
+    margin: auto;
+    text-align: center;
+
+}
+#fund{
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: large;
+    color: antiquewhite;
+    border: 2px solid antiquewhite;
+    background-color: #000015;
+}
+#fund:hover{
+    background-color: antiquewhite;
+    color: #000015;
+    transition-duration: 0.4s;
+    border: none;
+    cursor: pointer;
+}

@@ -20,6 +20,9 @@ async function connect(){
         console.log("Hello");
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         document.getElementById("connectButton").innerText="Connected!"
+        document.getElementById("connectButton").remove();
+        document.getElementById("metamaskConnect").innerHTML="<div id ='metamaskConnect1'><h2 id ='Connect-Meta'>Connected to <img src='./Images/metamask.png' width='30' height='24'></h2> </div>";
+
 
     }
     else{
