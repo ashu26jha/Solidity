@@ -43,6 +43,13 @@ label{
     font-family: 'Nunito', sans-serif;
     background-color: antiquewhite;
 }
+#address{
+    color: rgb(84, 84, 84);
+    margin: auto;
+    width: 40%;
+    padding-bottom: 50px;
+    /* padding-top: 0xp; */
+}
 #metamaskConnect{
     display: flex;
     font-size: 20px;
@@ -61,8 +68,10 @@ label{
 #connectButton {
     background-color: #000015;
     color: antiquewhite;
-    border-radius: 10px;
-    border: 2px solid;
+    /* border-radius: 10px; */
+    /* border: 2px solid; */
+    border-style: solid;
+    border-image: linear-gradient(to right, #ff0c25, #5c4afb) 1;
     margin-top: 30px;
     height: 28px;
     margin-left: 20px;
@@ -73,7 +82,7 @@ label{
   
 #connectButton:hover {
     /* background-color: #4CAF50; Green */
-    
+    border: none;
     background-color: antiquewhite;
     color: #000015;
     cursor: pointer;
@@ -106,11 +115,12 @@ label{
 }
 #fund{
     padding: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     text-align: center;
     font-size: large;
     color: antiquewhite;
-    border: 2px solid antiquewhite;
+    border-style: solid;
+    border-image: linear-gradient(to right, #ff0c25, #5c4afb) 1;
     background-color: #000015;
 }
 #fund:hover{
@@ -118,5 +128,38 @@ label{
     color: #000015;
     transition-duration: 0.4s;
     border: none;
+    cursor: pointer;
+}
+
+.container#blur.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+#popup{
+    position:fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    padding: 50px;
+    box-shadow: 0,5px,30px rgba(0,0,0,0.30);
+    background: #18183d;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#popup.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+#flip{
+    float: right;
+    background-color: #18183d;
+    border: none;
+    color: antiquewhite;
+    size: 20px;
     cursor: pointer;
 }

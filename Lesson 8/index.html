@@ -10,27 +10,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">    <title>Buy me a coffee</title>
 </head>
 <body>
-    <script src="./index.js" type="module"></script>
-    <div class = "navbar">
-        <div class = "logoContainer">
-            <img src="/Images/logo.png" class="logo1">
+    <div class="container" id = "blur">
+        <script src="./index.js" type="module"></script>
+        <div class = "navbar">
+            <div class = "logoContainer">
+                <img src="/Images/logo.png" class="logo1">
+                
+            </div>
+            <div class="logotext">
+                <h1>Buy me a coffee</h1>
+            </div>
+        </div>
+        <div id="metamaskConnect">
+            <h2 id="Connect-Meta">Connect to metamask first!</h2>
+            <button id="connectButton" >Connect</button>
             
         </div>
-        <div class="logotext">
-            <h1>Buy me a coffee</h1>
+        <div id = "address"></div>
+        <div id = "fundME">
+            <label for="coffee">Get me a coffee for :</label>
+            <input id="ETHAmount" placeholder="Enter the amount"/>
+            <button id="fund">Fund Me</button>
         </div>
+        <br>
+        <!-- <button id="balance">Balance</button>
+        <button id="flip">Testing</button> -->
+
     </div>
-    <div id="metamaskConnect">
-        <h2 id="Connect-Meta">Connect to metamask first!</h2>
-        <button id="connectButton" >Connect</button>
+    <div id="popup">
+        <button id="flip">X</button>
+        <h2>Transaction successful ✅ </h2><p id="success"></p>
+        
     </div>
-    
-    <div id = "fundME">
-        <label for="fund">Get me a coffee for :</label>
-        <input id="ETHAmount" placeholder="Enter the amount"/>
-        <button id="fund">Fund Me</button>
-    </div>
-    <br>
-    <button id="balance">Balance</button>
+
 </body>
 </html>
