@@ -5,8 +5,12 @@ async function main() {
   const SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage")
   console.log("Deploying contract...")
   const simpleStorage = await SimpleStorageFactory.deploy()
+  // console.log("FIC");
+  console.log(`SIMPLE STORAGE FACTORY ::::: ${simpleStorage}`)
   await simpleStorage.deployed()
   console.log(`Deployed contract to: ${simpleStorage.address}`)
+  const [owner, addr1] = await ethers.getSigners();
+  console.log(hre.getNamedAccounts());
   // what happens when we deploy to our hardhat network?
   if (network.config.chainId === 5 && process.env.ETHERSCAN_API_KEY) {
     console.log("Waiting for block confirmations...")
