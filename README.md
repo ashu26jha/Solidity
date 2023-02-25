@@ -34,6 +34,8 @@ We can send ether ether to address by using
 ### Useful Stuff 
 
 `block.timestamp` tell the current time of block
+
 `payable` Mark an address payable if you want that address some ETH or funds
+
 `payable_Address.send(amount)` It is used to send ETH, this 
 
