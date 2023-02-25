@@ -1,8 +1,5 @@
 A contract is a collection of functions and data that resides at a specific address on a ethereum blockchain
 
-`msg.sender` is the address from where the call came from. Just like in other languages the constructor can only be called once.
-Inside the constructor we can use `msg.sender` to get address of contract creator
-
 ### Transactions:
 If you want to change the state of blockchain you need to make a transaction which has to be verified by others and signed by the creator. 1 ETH = 10^18 WEI.
 
@@ -13,6 +10,9 @@ Originator of the transaction pays the gas. It is basically the cost of conducti
 One should try not to deal with more than one transaction in a single go.
 
 Message signing is proving that you have access to that address. Signing a message with a private key does not require interacting with the Ethereum network.
+
+`msg.sender` is the address from where the call came from. Just like in other languages the constructor can only be called once.
+Inside the constructor we can use `msg.sender` to get address of contract creator
 
 ### Byte Code & ABI
 ABI stands for Application Binary Interface it is used to communicate between accounts and smart contracts. Also between smart contracts and smart contracts. Think of this just like a smart contract.
