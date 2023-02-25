@@ -20,7 +20,7 @@ ABI stands for Application Binary Interface it is used to communicate between ac
 Byte Code is deployed on Ethereum Virtual Machine. It is a JSON file. OPcode has those instructions
 
 ### Logs
-Geneerally used by events in solidity. Contracts cannot access log data after it has been created, but they can be efficiently accessed from outside the blockchain.
+Generally used by events in solidity. Contracts cannot access log data after it has been created, but they can be efficiently accessed from outside the blockchain.
 
 `require(condition,explaination)` for example `require(msg.sender == owner,"Only owner")` If require is failed the state is reverted and all the unused gas is sent back. 
 
@@ -38,4 +38,6 @@ We can send ether ether to address by using
 `payable` Mark an address payable if you want that address some ETH or funds
 
 `payable_Address.send(amount)` It is used to send ETH, this 
+
+`this` refers to the current contract. `address(this).balance` will give balance of contract.
 
