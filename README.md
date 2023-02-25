@@ -12,6 +12,13 @@ Originator of the transaction pays the gas. It is basically the cost of conducti
 
 One should try not to deal with more than one transaction in a single go.
 
+Message signing is proving that you have access to that address. Signing a message with a private key does not require interacting with the Ethereum network.
+
+### Byte Code & ABI
+ABI stands for Application Binary Interface it is used to communicate between accounts and smart contracts. Also between smart contracts and smart contracts. Think of this just like a smart contract.
+
+Byte Code is deployed on Ethereum Virtual Machine. It is a JSON file. OPcode has those instructions
+
 ### Logs
 Geneerally used by events in solidity. Contracts cannot access log data after it has been created, but they can be efficiently accessed from outside the blockchain.
 
