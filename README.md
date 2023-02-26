@@ -41,3 +41,20 @@ We can send ether ether to address by using
 
 `this` refers to the current contract. `address(this).balance` will give balance of contract.
 
+## Understanding Hardhat Deploy 
+
+Firstly we deploy the mocks. `module.exports = async ({ getNamedAccounts, deployments }) => { }`. We extract getNamedAccounts and deployments from the `hre` also known as Hardhat Runtime environment. 
+
+`await getNamedAccounts()` function retrieves `namedAccounts` from `hardhat.config.js`. 
+
+```
+namedAccounts: {
+        deployer: {
+            default: 0, // If you run yarn hardhat node you will get this as account[0]
+            1: 0, 
+        },
+        player: {
+            default: 1, // // If you run yarn hardhat node you will get this as account[1]
+        },
+    }
+```
