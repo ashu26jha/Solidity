@@ -43,18 +43,44 @@ We can send ether ether to address by using
 
 ## Understanding Hardhat Deploy 
 
-Firstly we deploy the mocks. `module.exports = async ({ getNamedAccounts, deployments }) => { }`. We extract getNamedAccounts and deployments from the `hre` also known as Hardhat Runtime environment. 
+Firstly we deploy the mocks. `module.exports = async ({ getNamedAccounts, deployments }) => { }`. We extract `getNamedAccounts` and `deployments` from the `hre` also known as Hardhat Runtime environment. 
 
-`await getNamedAccounts()` function retrieves `namedAccounts` from `hardhat.config.js`. 
+### NamedAccounts
+
+
+`await getNamedAccounts()` function retrieves `namedAccounts` from `hardhat.config.js`. This function will return deployer and player
 
 ```
 namedAccounts: {
-        deployer: {
-            default: 0, // If you run yarn hardhat node you will get this as account[0]
-            1: 0, 
-        },
-        player: {
-            default: 1, // // If you run yarn hardhat node you will get this as account[1]
-        },
-    }
+    deployer: {
+        default: 0, // If you run yarn hardhat node you will get this as account[0]
+        1: 0, 
+    },
+    player: {
+        default: 1, // // If you run yarn hardhat node you will get this as account[1]
+    },
+}
 ```
+
+For retrieving chainId `const chainId = network.config.chainId` for this you need to import network from hardhat
+
+### Deployments
+
+We extract `deploy` function from `deployments` by `const {deploy} = deployments`. To deploy the contract you need args as arguments passed through the contructor of `.sol` file.
+
+```
+await deploy("Name_Of_Contract", {
+    from: deployer,
+    log: true,
+    args: [],
+})
+```
+
+### Interacting with deployed contract
+
+Once the contract is deployed we can interact with `const contract = await ethers.getContract("Name_Of_Contract")`. For interacting we the contract variable. Now the `contract` has everything such as its `functions`, `address`, `deployer`. Calling a function changes state variable so its a transaction. To interact with a function `contract.functionName()`. Now we wait for transaction to go through so wait 1 block confirmations.
+```
+const transactionResponse = await contract.createSubscription()
+const transactionReceipt = await transactionResponse.wait(1)
+```
+The `transactionReceipt` has all the return properties and this event logs
