@@ -84,3 +84,17 @@ const transactionResponse = await contract.createSubscription()
 const transactionReceipt = await transactionResponse.wait(1)
 ```
 The `transactionReceipt` has all the return properties and this event logs
+
+
+## ERC 
+ERC Ethereum Request for Comments. EIP Ethereum improvement proposal. Talks about how to create token in smart contracts
+
+### Benefits of ERC-20
+1. Governance Tokens
+2. Secure an underlying network
+3. Create a synthetic asset
+4. Or anything else
+
+### Info
+
+It is different from tokens like Ethereum and Bitcoin those are layer 1 tokens. Openzepplin helps to create
