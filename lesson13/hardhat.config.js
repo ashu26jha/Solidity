@@ -11,8 +11,8 @@ require("dotenv").config()
  */
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x"
-// optional
 
 // Your API key for Etherscan, obtain one at https://etherscan.io/
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "Your etherscan API key"
@@ -33,30 +33,24 @@ module.exports = {
         },
         goerli: {
             url: GOERLI_RPC_URL,
-            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
-            //   accounts: {
-            //     mnemonic: MNEMONIC,
-            //   },
+            accounts: [PRIVATE_KEY],
             saveDeployments: true,
             chainId: 5,
+            blockConfirmations: 6,
+        },
+        sepolia: {
+            url: SEPOLIA_RPC_URL,
+            accounts: [PRIVATE_KEY],
+            chainId: 11155111,
+            blockConfirmations: 6,
         },
     },
     etherscan: {
         // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
             goerli: ETHERSCAN_API_KEY,
-            // gon: POLYGONSCAN_API_KEpolyY,
+            sepolia: ETHERSCAN_API_KEY,
         },
-        customChains: [
-            {
-                network: "goerli",
-                chainId: 5,
-                urls: {
-                    apiURL: "https://api-goerli.etherscan.io/api",
-                    browserURL: "https://goerli.etherscan.io",
-                },
-            },
-        ],
     },
     gasReporter: {
         enabled: REPORT_GAS,
@@ -95,3 +89,7 @@ module.exports = {
         timeout: 500000, // 500 seconds max for running tests
     },
 }
+// Contracts are deployed at :
+// DynamicSVG: 0xBc355B4cdb9bA464b4D0C0D86e2e21Fb3262D7ab
+// RadomIpfsNft: 0xA6fAc5f804eAAfE43916d4D5701f099306251E19
+// BasicNft: 0xb79640417f921458bBf955d7f1a5A3e72A91F85e

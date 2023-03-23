@@ -72,10 +72,12 @@ module.exports = async function ({getNamedAccounts,deployments}){
         waitConfirmations: 1,
     }) ;
 
-    await VRFCoordinatorV2Mock.addConsumer(
-        subscriptionId,
-        RandomIpfsNft.address
-    )
+    if(developmentChains.includes(network.name)){
+        await VRFCoordinatorV2Mock.addConsumer(
+            subscriptionId,
+            RandomIpfsNft.address
+        )
+    }
 
 
     
