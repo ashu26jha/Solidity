@@ -98,3 +98,7 @@ ERC Ethereum Request for Comments. EIP Ethereum improvement proposal. Talks abou
 ### Info
 
 It is different from tokens like Ethereum and Bitcoin those are layer 1 tokens. Openzepplin helps to create
+
+
+### ERC 721
+Basically meant for NFTs. It has mapping of token ID to the address of who owns it. Each token ID is unique. `tokenURI()` is the function that will return the address where the metadata of this specific token is stored. The metadata is a .json file (following the ERC721Metadata standard) where all the data associated to the NFT is stored. Such as its name, the address where the image is stored.
