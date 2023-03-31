@@ -1,4 +1,4 @@
-`yarn create next-app .`
-`yarn dev`
-Create a folder components
-`yarn add web3uikit moralis react-moralis`
+`yarn create next-app.`
+`yarn add web3uikit moralis react-moralis moralis-v1`
+`yarn add --dev tailwindcss postcss autoprefixer`
+`yarn tailwindcss init -p`

@@ -12,6 +12,8 @@ require("dotenv").config()
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
 const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL
+const MUMBAI_RPC_URL = process.env.MUMBAI_RPC_URL
+
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x"
 
 // Your API key for Etherscan, obtain one at https://etherscan.io/
@@ -44,12 +46,19 @@ module.exports = {
             chainId: 11155111,
             blockConfirmations: 6,
         },
+        mumbai : {
+            url: MUMBAI_RPC_URL,
+            accounts: [PRIVATE_KEY],
+            chainId: 80001,
+            blockConfirmations: 6,
+        },
     },
     etherscan: {
         // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
             goerli: ETHERSCAN_API_KEY,
             sepolia: ETHERSCAN_API_KEY,
+            mumbai: ETHERSCAN_API_KEY,
         },
     },
     gasReporter: {
@@ -76,16 +85,13 @@ module.exports = {
             {
                 version: "0.8.8",
             },
-            // {
-            //     version: "0.4.24",
-            // },
             {
                 version: "0.6.6"
             },
         ],
     },
     mocha: {
-        timeout: 500000, // 500 seconds max for running tests
+        timeout: 500000, 
     },
 }
 

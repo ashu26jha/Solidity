@@ -1,10 +1,11 @@
 const { assert, expect } = require("chai")
 const { network, deployments, ethers } = require("hardhat")
 const { developmentChains } = require("../../helper-hardhat-config")
-
+// console.log("HELLO")
 !developmentChains.includes(network.name)
     ? describe.skip
     : describe("Nft Marketplace Unit Tests", function () {
+        
           let nftMarketplace, nftMarketplaceContract, basicNft, basicNftContract
           const PRICE = ethers.utils.parseEther("0.1")
           const TOKEN_ID = 0

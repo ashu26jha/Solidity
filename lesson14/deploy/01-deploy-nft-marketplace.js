@@ -22,7 +22,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     // Verify the deployment
     if (network.name != "hardhat" && process.env.ETHERSCAN_API_KEY) {
         log("Verifying...")
-        await verify(basicNft.address, args)
+        await verify(nftMarketplace.address, arguments)
     }
     log("----------------------------------------------------")
 }
